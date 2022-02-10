@@ -20,7 +20,8 @@ main {
 }
 
 .slider img{
-    height: 40vh;
+    height: 38vh;
+    width: 58vw;
     bottom: 10px;
 }
 
@@ -32,8 +33,12 @@ main {
     color: white;
 }
 
-.thumbnails img{
-    height: 8vh;
+.thumbnail img{
+    height: calc(38vh / 5);
     width: 140px;
     display: block;
+}
+
+.active{
+    border: 1px solid red;
 }
