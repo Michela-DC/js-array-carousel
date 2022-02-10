@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+}
+
+.slider-container{
+    position: relative;
+}
+
+.slider img{
+    height: 40vh;
+    bottom: 10px;
+}
+
+.img-info{
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    text-align: end;
+    color: white;
+}
+
+.thumbnails img{
+    height: 8vh;
+    width: 140px;
+    display: block;
+}
