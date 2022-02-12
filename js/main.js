@@ -93,17 +93,23 @@ btnUp.addEventListener('click', function(){
     slideText[activeIndex].classList.remove('active-slide');
     thumbnail[activeIndex].classList.remove('active');
     console.log(thumbnail[activeIndex], slide[activeIndex], slideTitle[activeIndex]);
-
-    //incremento l'activeIndex per stabilire la nuova thumbnail e la nuova slide corrente
-    activeIndex --;
-
+    
+    if ( activeIndex > 0){ 
+    //decremento l'activeIndex per stabilire la nuova thumbnail e la nuova slide corrente
+        activeIndex --;
+    // la prima immagine ha indice 0 quindi in questo if dico che se clicco sul pulsante su' e l'indice è minore di 0 non posso più diminuire l'indice, quindi non andrò oltre la prima immagine
+    } else { 
+    // se l'indice diventa < 0 allora assegno all'indice la lunghezza dell'array - 1 (in questo caso 4) così l'indice si sposterà sull'immagine che dentro l'array è nella posizione corrispondente ovvero quella che ho messo per ultima in basso [array è lungo 5 ma l'ultima pozione è 4 perchè si parte a contare da 0]
+        activeIndex = items.length - 1;
+    // in questo modo riesco ad andare oltre alla prima immagine ripartendo dall'ultima in basso
+    }
+    
     // devo aggiungere la classe active dalla slide e dalla thumbnail correnti
     slide[activeIndex].classList.add('active-slide');
     slideTitle[activeIndex].classList.add('active-slide');
     slideText[activeIndex].classList.add('active-slide');
     thumbnail[activeIndex].classList.add('active');
     console.log(thumbnail[activeIndex], slide[activeIndex], slideTitle[activeIndex]);
-
 })
 
 btnDown.addEventListener('click', function(){
@@ -113,9 +119,16 @@ btnDown.addEventListener('click', function(){
     slideTitle[activeIndex].classList.remove('active-slide');
     slideText[activeIndex].classList.remove('active-slide');
     thumbnail[activeIndex].classList.remove('active');
-
-    activeIndex ++;
-
+    console.log(activeIndex)
+    
+    if (activeIndex < items.length - 1){ 
+    // se l'indice è minore della lunghezza dell'array - 1 (ovvero minore delle posibili posizione dentro l'array, in questo caso 4) allora incremento l'indice
+        activeIndex ++;
+    } else{
+    // se l'indice diventa maggiore della lunghezza dell'array - 1 allora lo faccio ritornare a zero, ovvero alla posizione dell'aray in cui è l'immagine che ho messo per prima i alto
+        activeIndex = 0;
+    }
+    
     slide[activeIndex].classList.add('active-slide');
     slideTitle[activeIndex].classList.add('active-slide');
     slideText[activeIndex].classList.add('active-slide');
